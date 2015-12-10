@@ -11,3 +11,19 @@ function createBoard(){
 function setPiece(num, player){
   gameBoard[num] = player;
 }
+
+function staleCheck(){
+  var stalecheckBoard = gameBoard.filter(function(item){
+    if (item === 0){
+      return true;
+    }else{
+      return false;
+    }
+  });
+  console.log(stalecheckBoard);
+  if (stalecheckBoard.length > 0){
+    return false;
+  }else{
+    return true;
+  }
+}

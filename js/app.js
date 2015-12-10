@@ -1,18 +1,23 @@
 $(document).ready(function(){
 
-  $('.gameboard').on("click", '.col', function(){
+  $('.gameboard').on("click", '[class^=col]', function(){
 
     var currentPiece = $(this).attr('id');
-    setPiece(currentPiece, currentPlayer);
-    printBoard(gameBoard);
-    if (currentPlayer === "X"){
-      currentPlayer = "O";
+    var thisClass = $(this).attr('class');
+    if (thisClass === "col-X" || thisClass === "col-O"){
+      alert("You can't move there, please choose another");
     }else{
-      currentPlayer = "X";
+      setPiece(currentPiece, currentPlayer);
+      printBoard(gameBoard);
+      if (currentPlayer === "X"){
+        currentPlayer = "O";
+      }else{
+        currentPlayer = "X";
+      }
     }
-
-    console.log(gameBoard);
-    // printBoard(gameBoard);
+    if(staleCheck()){
+      alert("Game Over");
+    }
   });
   createBoard()
 
@@ -29,6 +34,6 @@ function printBoard(arr){
       currentRow = i/3;
       $('.gameboard').append('<div class="row-' + currentRow + '"></div>');
     }
-    $('.row-' + currentRow).append('<div class="col" id="' + i + '"></div>');
+    $('.row-' + currentRow).append('<div class="col-' + item +'" id="' + i + '"></div>');
   })
 }

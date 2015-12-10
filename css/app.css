@@ -52,3 +52,11 @@ main{
   width: 50%;
   min-width: 300px;
 }
+
+div[class^='row'] .col-X{
+  background-color: red;
+}
+
+div[class^='row'] .col-O{
+  background-color: green;
+}
