@@ -1,5 +1,6 @@
 var gameBoard = [];
 var currentPlayer = "X";
+var counterArray = [4,3,8,9,5,1,2,7,6];
 
 function createBoard(){
   for (i=0; i<9; i++){
@@ -38,9 +39,14 @@ function currentPlayerArray(current){
 }
 
 function winCheck(arr){
+  console.log(arr);
   for (var i=0; i<arr.length - 2; i++){
+    console.log("bing");
     for(var j= i+1; j<arr.length - 1; j++){
+      console.log("bong")
       for(var k = j+1; k<arr.length; k++){
+        console.log("bang")
+        console.log(arr[i] + arr[j] + arr[k]);
         if (arr[i] + arr[j] + arr[k] === 15){
           return true;
         }
@@ -48,4 +54,10 @@ function winCheck(arr){
     }
   }
   return false;
+}
+
+function reset(){
+  $('.gameboard').empty();
+  createBoard();
+  printBoard();
 }

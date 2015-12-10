@@ -8,33 +8,45 @@ $(document).ready(function(){
       alert("You can't move there, please choose another");
     }else{
       setPiece(currentPiece, currentPlayer);
-      printBoard(gameBoard);
-      console.log(winCheck(currentPlayerArray(gameBoard)));
-      if (currentPlayer === "X"){
+      if (winCheck(currentPlayerArray(currentPlayer))){
+        var newGame = confirm("Player " + currentPlayer + " wins! Would you like to play again?");
+        if (newGame){
+          reset();
+        }else{
+          $('.gameboard').remove();
+        }
+      }else if (staleCheck()){
+        var newGame = confirm("You have drawn the game.  Would you like to play again?");
+        if (newGame){
+          reset();
+        }else{
+          $('.gameboard').remove();
+        }
+      }else if (currentPlayer === "X"){
         currentPlayer = "O";
       }else{
         currentPlayer = "X";
       }
+      printBoard(gameBoard);
     }
-    if(staleCheck()){
-      alert("Game Over");
-    }
+
   });
   createBoard()
 
-  printBoard(gameBoard);
+  printBoard();
 
 })
 
-function printBoard(arr){
+function printBoard(){
   $('.gameboard').empty();
   $('.gameboard').append('<h2>Current Player is ' + currentPlayer + '<h2>');
   var currentRow;
-  arr.forEach(function(item, i){
+  counterArray.forEach(function(item, i){
     if(i%3 === 0){
       currentRow = i/3;
       $('.gameboard').append('<div class="row-' + currentRow + '"></div>');
     }
-    $('.row-' + currentRow).append('<div class="col-' + item +'" id="' + i + '"></div>');
+    var id = item -1;
+    $('.row-' + currentRow).append('<div class="col-' + gameBoard[id] +'" id="' + id + '"></div>');
   })
 }
