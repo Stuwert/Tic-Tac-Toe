@@ -2,6 +2,20 @@ body{
   width: 100vw;
 }
 
+*{
+  font-family: 'Slabo 27px', serif;
+}
+
+p{
+  margin: 10px 30px;
+  text-align: center;
+}
+
+h3{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 div[class^='row'] div{
   width: 100px;
   height: 100px;
@@ -10,8 +24,11 @@ div[class^='row'] div{
   border: 1px solid white;
 }
 
+
+
 div[class^='row']{
   display: flex;
+  margin: 0 auto;
 }
 
 div[class^='row'] .col-0:hover{
@@ -50,6 +67,7 @@ main{
 .instructions{
   width: 50%;
   min-width: 300px;
+  margin-bottom: 30px;
 }
 
 div[class^='row'] .col-X{

@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 function printBoard(){
   $('.gameboard').empty();
-  $('.gameboard').append('<h2>Current Player is ' + currentPlayer + '<h2>');
+  $('.gameboard').append('<h3>Current Player is ' + currentPlayer + '<h3>');
   var currentRow;
   counterArray.forEach(function(item, i){
     if(i%3 === 0){
