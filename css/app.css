@@ -14,10 +14,11 @@ div[class^='row']{
   display: flex;
 }
 
-div[class^='row'] div:hover{
+div[class^='row'] .col-0:hover{
   background-color: white;
   border: 1px solid grey;
 }
+
 
 header{
   border-bottom: 1px solid black;
@@ -47,16 +48,16 @@ main{
 }
 
 .instructions{
-  background-color: green;
-  height: 300px;
   width: 50%;
   min-width: 300px;
 }
 
 div[class^='row'] .col-X{
-  background-color: red;
+  background-image: url('http://images.landofnod.com/is/image/LandOfNod/Letter_Giant_Enough_X_236462_LL/$web_zoom$&wid=550&hei=550&/1308310656/not-giant-enough-letter-x.jpg');
+  background-size: contain;
 }
 
 div[class^='row'] .col-O{
-  background-color: green;
+  background-image: url('http://images.landofnod.com/is/image/LandOfNod/Letter_Giant_Enough_O_232343_LL/$web_zoom$&wid=550&hei=550&/1308310656/not-giant-enough-letter-o.jpg');
+  background-size: contain;
 }
