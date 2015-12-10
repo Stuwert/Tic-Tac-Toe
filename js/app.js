@@ -9,6 +9,7 @@ $(document).ready(function(){
     }else{
       setPiece(currentPiece, currentPlayer);
       printBoard(gameBoard);
+      console.log(winCheck(currentPlayerArray(gameBoard)));
       if (currentPlayer === "X"){
         currentPlayer = "O";
       }else{
